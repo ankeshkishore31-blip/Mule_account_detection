@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@mule-platform/shared-types": ["../../packages/shared-types/src/index.ts"],
+      "@mule-platform/ui-kit": ["../../packages/ui-kit/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*"]
+}

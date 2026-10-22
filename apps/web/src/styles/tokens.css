@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Mule Investigator Workspace - Design Tokens
+   Two themes: Daylight Ledger (default) & Night Ledger
+   ========================================================================== */
+
+:root,
+[data-theme="daylight"] {
+  /* Daylight Ledger (Light - Warm Paper) */
+  --bg: #FAF8F4;
+  --surface: #FFFFFF;
+  --surface-sunk: #F3F0EA;
+  --ink: #1C1B19;
+  --ink-muted: #6B6862;
+  --ink-faint: #9A958B;
+  --border: #E3DED5;
+  --accent: #14524B;
+  --accent-hover: #0E3D38;
+  --accent-soft: #E4EEEC;
+  --secondary: #B4690E;
+  --secondary-soft: #F7EEDF;
+  --danger: #A32A2A;
+  --warn: #B4690E;
+  --success: #2F6B3A;
+
+  --color-scheme: light;
+}
+
+[data-theme="night"] {
+  /* Night Ledger (Dark - Desaturated Teal & Warm Amber) */
+  --bg: #14161A;
+  --surface: #1B1D22;
+  --surface-sunk: #101215;
+  --ink: #E8E4DC;
+  --ink-muted: #9A958B;
+  --ink-faint: #6B6862;
+  --border: #2A2D33;
+  --accent: #5FB8A8;
+  --accent-hover: #7ACBBC;
+  --accent-soft: #1E2C2A;
+  --secondary: #E0A458;
+  --secondary-soft: #2E2519;
+  --danger: #E06C6C;
+  --warn: #E0A458;
+  --success: #6FB07C;
+
+  --color-scheme: dark;
+}
+
+/* System fallback when no explicit attribute is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="daylight"]) {
+    --bg: #14161A;
+    --surface: #1B1D22;
+    --surface-sunk: #101215;
+    --ink: #E8E4DC;
+    --ink-muted: #9A958B;
+    --ink-faint: #6B6862;
+    --border: #2A2D33;
+    --accent: #5FB8A8;
+    --accent-hover: #7ACBBC;
+    --accent-soft: #1E2C2A;
+    --secondary: #E0A458;
+    --secondary-soft: #2E2519;
+    --danger: #E06C6C;
+    --warn: #E0A458;
+    --success: #6FB07C;
+
+    --color-scheme: dark;
+  }
+}
+
+/* Transition color properties smoothly without animating layout */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 180ms ease-out,
+              border-color 180ms ease-out,
+              color 180ms ease-out,
+              box-shadow 180ms ease-out,
+              stroke 180ms ease-out,
+              fill 180ms ease-out !important;
+  transition-property: background-color, border-color, color, box-shadow, stroke, fill !important;
+}
+
+/* Base typographic settings */
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'cv05', 'ss01', 'tnum';
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monospace font settings */
+code, kbd, samp, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-feature-settings: 'tnum';
+}
+
+/* Tabular numerals helper */
+.tnum, [data-tabular] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms linear !important;
+    scroll-behavior: auto !important;
+  }
+}
